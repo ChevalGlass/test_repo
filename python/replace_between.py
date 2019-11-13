@@ -8,5 +8,6 @@ def replace_between(start, end, file, repl):
 	with open(file, 'r') as open_file:
 		whole_file = re.sub(r'(?<='+start+'\n)(\n*?.*?\n*?.*?)*?(?=\n'+end+'*)', repl, open_file.read())
 
+	# This needs to protect against files that do not exist!
 	with open(file, "w") as open_file:
 		open_file.write(whole_file)
